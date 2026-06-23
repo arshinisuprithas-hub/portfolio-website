@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e293b;
+    --background-color: #f8fafc;
+    --card-color: #ffffff;
+    --text-color: #333333;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,25 +14,31 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
+/* Header */
+
 header {
-    background-color: #222;
+    background-color: var(--secondary-color);
     color: white;
-    text-align: center;
     padding: 20px;
 }
 
-nav ul {
-    list-style: none;
-    margin-top: 10px;
+header h1 {
+    text-align: center;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+/* Flexbox Navigation */
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin-top: 15px;
 }
 
 nav a {
@@ -34,47 +48,52 @@ nav a {
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #60a5fa;
 }
 
+/* Grid Layout */
+
 main {
-    max-width: 900px;
-    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    max-width: 1200px;
+    margin: auto;
     padding: 20px;
 }
+
+/* Cards */
 
 section,
 article {
-    background: white;
+    background-color: var(--card-color);
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
 }
 
-h1,
-h2 {
-    margin-bottom: 15px;
-}
-
-p {
-    margin-bottom: 10px;
-}
+/* Form */
 
 input,
 textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 5px;
+    margin-bottom: 15px;
+
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 button {
-    background-color: #222;
+    background-color: var(--primary-color);
     color: white;
-    padding: 10px 20px;
+
     border: none;
-    border-radius: 5px;
+    padding: 12px 20px;
+
+    border-radius: 8px;
     cursor: pointer;
 }
 
@@ -82,10 +101,25 @@ button:hover {
     opacity: 0.9;
 }
 
+/* Footer */
+
 footer {
-    background-color: #222;
+    background-color: var(--secondary-color);
     color: white;
     text-align: center;
     padding: 15px;
-    margin-top: 20px;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
 }
